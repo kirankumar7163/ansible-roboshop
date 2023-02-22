@@ -44,6 +44,18 @@
     enabled: yes
     daemon_reload: true
 
+
+- name: Copying  mongodb repofile
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
+
+
+- name: Install mongodb
+  ansible.builtin.yum:
+    name: mongodb-org-shell
+    state: installed
+
 - name: load schema
   community.mongodb.mongodb_shell:
     login_host: mongodb.kiranprav.link
