@@ -40,3 +40,7 @@
   ansible.builtin.shell: update
   register: out
   check_mode: yes
+
+- name: out
+  debug:
+    msg: "{{out}}"
