@@ -43,3 +43,9 @@
     name: catalogue
     enabled: yes
     daemon_reload: true
+
+- name: load schema
+  community.mongodb.mongodb_shell:
+    login_host: mongodb.kiranprav.link
+    file: "/app/schema/catalogue.js"
+    idempotent: yes
