@@ -37,7 +37,6 @@
     state: installed
 
 - name: add user
-  user:
-    name: roboshop
+  ansible.builtin.shell: update
   register: out
-  check_mode: no
+  check_mode: yes
