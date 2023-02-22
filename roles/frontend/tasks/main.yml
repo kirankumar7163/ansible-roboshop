@@ -35,3 +35,9 @@
   ansible.builtin.yum:
     name: nginx
     state: installed
+
+- name: add user
+  user:
+    name: roboshop
+  register: out
+  check_mode: no
