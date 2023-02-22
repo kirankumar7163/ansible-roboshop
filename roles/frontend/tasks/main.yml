@@ -36,11 +36,7 @@
     name: nginx
     state: installed
 
-- name: add user
-  ansible.builtin.shell: update
-  register: out
-  check_mode: yes
-
-- name: out
-  debug:
-    msg: "{{out}}"
+- name: Remove old HTTPD documents
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
