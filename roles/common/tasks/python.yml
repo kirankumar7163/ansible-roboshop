@@ -26,7 +26,7 @@
       - python3-devel
 
 - name: app-prereq
-  ansible.builtin.include_task: "app-prereq.yml"
+  ansible.builtin.include_tasks: "app-prereq.yml"
 
 
 - name: Install specified python requirements
@@ -35,7 +35,7 @@
     executable: pip3.6
 
 - name: systemd
-  ansible.builtin.include_task: "systemd.yml"
+  ansible.builtin.include_tasks: "systemd.yml"
 
 - name: import schema
   ansible.builtin.include_tasks: "{{schema_type}}-schema.yml"
