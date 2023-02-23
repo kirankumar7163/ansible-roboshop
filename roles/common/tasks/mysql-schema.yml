@@ -1,3 +1,7 @@
-- name: dummy
-  debug:
-    msg: hello world
+- name: loading mysql schema
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    target: /app/schema/{{component}}.sql
+    login_host: mysql.kiranprav.link
+    login_password: "{{root_mysql_password}}"
