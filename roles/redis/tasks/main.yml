@@ -43,9 +43,12 @@
 
 - name: Replace the portnumber from 127.0.0.1 to 0.0.0.0
   ansible.builtin.replace:
-    path: /etc/redis.conf
+    path: "{{item}}"
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
+  loop:
+    - /etc/redis.cong
+    - /etc/redis/redis.conf
 
 - name: starting systemd service
   ansible.builtin.systemd:
