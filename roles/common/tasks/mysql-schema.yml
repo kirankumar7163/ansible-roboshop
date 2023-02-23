@@ -10,5 +10,5 @@
     state: import
     name: all
     target: /app/schema/{{component}}.sql
-    login_host: mysql.kiranprav.link
+    login_host: 172.31.2.158
     login_password: "{{root_mysql_password}}"
