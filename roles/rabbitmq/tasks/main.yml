@@ -1,0 +1,67 @@
+#print_head "Configuring Erlang YUM Repos"
+#curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash &>>${LOG}
+#status_check
+
+#print_head "Configuring RabbitMQ YUM Repos"
+#curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash &>>${LOG}
+#status_check
+
+#print_head "Install Erlang & RabbitMQ"
+#yum install erlang rabbitmq-server -y  &>>${LOG}
+#status_check
+
+#print_head "Enable RabbitMQ Server"
+#systemctl enable rabbitmq-server  &>>${LOG}
+#status_check
+
+#print_head "Start RabbitMQ Server"
+#systemctl start rabbitmq-server  &>>${LOG}
+#status_check
+
+#print_head "Add Application User"
+#rabbitmqctl list_users | grep roboshop &>>${LOG}
+#if [ $? -ne 0 ]; then
+#rabbitmqctl add_user roboshop ${roboshop_rabbitmq_password}  &>>${LOG}
+#fi
+#status_check
+
+#print_head "Add Tags to Application User"
+#rabbitmqctl set_user_tags roboshop administrator  &>>${LOG}
+#status_check
+
+#print_head "Add permission to Application User"
+#rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"  &>>${LOG}
+#status_check
+
+
+- name: config erlang
+  ansible.builtin.shell: curl -s {{item}} |  bash
+  loop:
+    - https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh
+    - https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh
+
+- name : install rabbitmq
+  ansible.builtin.yum:
+    name:
+      - erlang
+      - rabbitmq-server
+    state: installed
+
+- name: start rabbitmq service
+  ansible.builtin.systemd:
+    name: rabbitmq
+    enabled: yes
+    state: restarted
+
+- name: |-
+    Add user to server and assign full access control on / vhost.
+    The user might have permission rules for other vhost but you don't care.
+  community.rabbitmq.rabbitmq_user:
+    user: roboshop
+    password: "{{roboshop_rabbitmq_password}}"
+    vhost: /
+    configure_priv: .*
+    read_priv: .*
+    write_priv: .*
+    state: present
+    tags: administrator
