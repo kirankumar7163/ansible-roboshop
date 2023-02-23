@@ -1,11 +1,41 @@
-source common.sh
 
-if [ -z "${root_mysql_password}" ]; then
-echo "Variable root_mysql_password is needed"
-exit
-fi
+#MAVEN() {
 
-component=shipping
-schema_load=true
-schema_type=mysql
-MAVEN
+#print_head "Install Maven"
+##yum install maven -y &>>${LOG}
+#status_check
+
+#APP_PREREQ
+
+#print_head "Build a package"
+#mvn clean package  &>>${LOG}
+#status_check
+
+#print_head "Copy App file to App Location"
+#mv target/${component}-1.0.jar ${component}.jar
+#status_check
+
+#SYSTEMD_SETUP
+
+#LOAD_SCHEMA
+
+
+- name: install maven
+  ansible.builtin.yum:
+    name: maven
+    state: installed
+
+- name: app-prereq
+  ansible.builtin.include_tasks: "app-preqreq.yml"
+
+- name: build package
+  ansible.builtin.shell: mvn clean package
+  args:
+    chdir: /app
+
+- name: systemd setup
+  ansible.builtin.include_tasks: "systemd.yml"
+
+- name: import schema
+  ansible.builtin.include_tasks: "{{mysql}}-schema.yml"
+  when: schema_load
