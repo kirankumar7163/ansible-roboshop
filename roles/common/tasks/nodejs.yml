@@ -1,0 +1,63 @@
+- name: configure nod JS repo
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+- name: Install nodejs
+  ansible.builtin.yum:
+    name: nodejs
+    state: installed
+
+- name: add a application user roboshop
+  ansible.builtin.user:
+    name: roboshop
+
+
+- name: Remove old contents
+  ansible.builtin.file:
+    path: /app
+    state: absent
+
+- name: Create a app Directroy
+  ansible.builtin.file:
+    path: /app
+    state: directory
+
+- name: downloading {{component}} App content
+  ansible.builtin.unarchive:
+    src: https://roboshop-artifacts.s3.amazonaws.com/{{component}}.zip
+    dest: /app
+    remote_src: yes
+
+- name: installing node js dependenciesnpm installation.
+  npm:
+    path: /app
+    state: latest
+
+- name: Copying file {{component}}.service
+  ansible.builtin.copy:
+    src: "{{component}}.service"
+    dest: /etc/systemd/system/{{component}}.service
+
+- name: starting catalogue service
+  ansible.builtin.systemd:
+    state: restarted
+    name: "{{component}}"
+    enabled: yes
+    daemon_reload: true
+
+
+- name: Copying  mongodb repofile
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
+
+
+- name: Install mongodb
+  ansible.builtin.yum:
+    name: mongodb-org-shell
+    state: installed
+
+- name: load schema
+  community.mongodb.mongodb_shell:
+    login_host: mongodb.kiranprav.link
+    file: "/app/schema/{{component}}.js"
+    idempotent: yes
