@@ -28,8 +28,8 @@
 - name: app-prereq
   ansible.builtin.include_tasks: "app-prereq.yml"
 
-- name: build package and moving package
-  ansible.builtin.shell: mvn clean package
+- name: Maven Build
+  ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
   args:
     chdir: /app
 
