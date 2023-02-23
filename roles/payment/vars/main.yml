@@ -1,2 +1,2 @@
 component: payment
-schema: false
+schema_load: false
