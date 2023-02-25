@@ -9,7 +9,7 @@
 - name: app-prereq
   ansible.builtin.include_tasks: "app-prereq.yml"
 
-- name: installing node js dependenciesnpm installation.
+- name: installing node js dependencies npm installation.
   npm:
     path: /app
     state: latest

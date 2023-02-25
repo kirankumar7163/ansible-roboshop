@@ -38,5 +38,6 @@
             string_type: "SecureString"
           loop:
             - {name: "dev.payment.AMQP_PASS", value: "roboshop1234" }
+            - - {name: "dev.rabbitmq.AMQP_PASSWORD", value: "roboshop1234" }
             - {name: "dev.mysql.DB_ADMIN_USER", value: "root" }
             -  {name: "dev.mysql.DB_ADMIN_PASSWORD", value: "Roboshop@1" }

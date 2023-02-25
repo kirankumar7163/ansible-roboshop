@@ -65,3 +65,6 @@
     write_priv: .*
     state: present
     tags: administrator
+    vars:
+      vars:
+        roboshop_rabbitmq_password: "{{ lookup('aws_ssm', "{{env}}.{{component}}.AMQP_PASSWORD", region='us-east-1' ) }}"
