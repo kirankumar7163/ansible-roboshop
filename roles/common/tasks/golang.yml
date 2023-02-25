@@ -10,7 +10,7 @@
 
 - name: Install specified golang requirements
   ansible.builtin.shell:
-    chdir: /path/to/your/go/module
+    chdir: /app
     cmd: |
       go mod init dispatch
       go get
