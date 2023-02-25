@@ -1,0 +1,23 @@
+
+- name: install python
+  ansible.builtin.yum:
+    name:
+      - golang
+
+- name: app-prereq
+  ansible.builtin.include_tasks: "app-prereq.yml"
+
+
+- name: Install specified python requirements
+  ansible.builtin.shell:
+    name:
+      - go mod init dispatch
+      - go get
+      - go build
+
+- name: systemd
+  ansible.builtin.include_tasks: "systemd.yml"
+
+- name: import schema
+  ansible.builtin.include_tasks: "{{schema_type}}-schema.yml"
+  when: schema_load
