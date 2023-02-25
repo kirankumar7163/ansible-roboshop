@@ -9,11 +9,7 @@
 
 
 - name: Install specified golang requirements
-  ansible.builtin.shell:
-    name:
-      - go mod init dispatch
-      - go get
-      - go build
+  ansible.builtin.shell: go mod init dispatch ; go get ; go build
 
 - name: systemd
   ansible.builtin.include_tasks: "systemd.yml"
