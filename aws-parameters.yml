@@ -36,4 +36,7 @@
             value: "{{ item.value }}"
             region: us-east-1
             string_type: "SecureString"
-        - {name: "dev.payment.AMQP_PASS", value: "roboshop1234" }
+          loop:
+            - {name: "dev.payment.AMQP_PASS", value: "roboshop1234" }
+            - {name: "dev.shipping.DB_ADMIN_USER", value: "root" }
+            -  {name: "dev.shipping.DB_ADMIN_PASSWORD", value: "Roboshop@1" }
