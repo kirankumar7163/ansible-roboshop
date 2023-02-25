@@ -55,7 +55,7 @@
 - name: download {{component}}artifact from repository
   ansible.builtin.unarchive:
     src: http://{{nexus_user}}:{{nexus_password}}@172.31.2.104:8081/repository/{{component}}/{{component}}-{{app_version}}zip
-    dest: /usr/share/nginx/html
+    dest: /app
     remote_src: yes
   vars:
     nexus_user: "{{ lookup('aws_ssm', 'nexus.user', region='us-east-1' ) }}"
