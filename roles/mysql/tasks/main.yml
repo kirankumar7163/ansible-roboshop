@@ -53,4 +53,4 @@
   register: out
   ignore_errors: yes
   vars:
-   root_mysql_password: "{{ lookup('aws_ssm', "{{env}}.{{component}}.DB_ADMIN_PASSWORD", region='us-east-1' ) }}"
+   root_mysql_password: "{{ lookup('aws_ssm', '{{env}}.{{component}}.DB_ADMIN_PASSWORD', region='us-east-1' ) }}"
