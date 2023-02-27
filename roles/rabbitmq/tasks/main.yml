@@ -53,9 +53,7 @@
     enabled: yes
     state: restarted
 
-- name: |-
-    Add user to server and assign full access control on / vhost.
-    The user might have permission rules for other vhost but you don't care.
+- name: adding application user
   community.rabbitmq.rabbitmq_user:
     user: roboshop
     password: "{{roboshop_rabbitmq_password}}"
