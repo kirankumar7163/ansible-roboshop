@@ -2,11 +2,10 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: Create or update key/value pair in AWS SSM parameter store
+    - name: Create parameters
       community.aws.aws_ssm_parameter_store:
         name: "{{ item.name }}"
         value: "{{ item.value }}"
-        region: us-east-1
       loop:
         - {name: "dev.cart.REDIS_HOST", value: "redis-dev.kiranprav.link" }
         - {name: "dev.cart.CATALOGUE_HOST", value: "catalogue-dev.kiranprav.link" }
@@ -38,6 +37,6 @@
             string_type: "SecureString"
           loop:
             - {name: "dev.payment.AMQP_PASS", value: "roboshop1234" }
-            - - {name: "dev.rabbitmq.AMQP_PASSWORD", value: "roboshop1234" }
+            - {name: "dev.rabbitmq.AMQP_PASSWORD", value: "roboshop1234" }
             - {name: "dev.mysql.DB_ADMIN_USER", value: "root" }
-            -  {name: "dev.mysql.DB_ADMIN_PASSWORD", value: "Roboshop@1" }
+            - {name: "dev.mysql.DB_ADMIN_PASSWORD", value: "Roboshop@1" }
