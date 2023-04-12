@@ -45,3 +45,5 @@
         - {name: "dev.docdb.DB_ADMIN_PASS", value: "RoboShop123" }
         - {name: "dev.rds.DB_ADMIN_USER", value: "admin1" }
         - {name: "dev.rds.DB_ADMIN_PASS", value: "RoboShop123" }
+        - { name: "dev.rabbitmq_USER", value: "roboshop" }
+        - { name: "dev.rabbitmq_PASS", value: "roboshop1234" }
