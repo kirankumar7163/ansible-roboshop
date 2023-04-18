@@ -16,7 +16,7 @@
 
 - name: download documentDB CA file
   ansible.builtin.get_url:
-    url: wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+    url: https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
     dest: /app/rds-combined-ca-bundle.pem
     when: schema_load
 
