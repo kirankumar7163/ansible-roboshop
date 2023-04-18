@@ -1,10 +1,10 @@
-- name: Copying  mongodb repofile
+- name: Copying  MongoDb Repofile
   ansible.builtin.copy:
     src: mongodb.repo
     dest: /etc/yum.repos.d/mongodb.repo
 
 
-- name: Install mongodb
+- name: Install Mongodb
   ansible.builtin.yum:
     name: mongodb-org-shell
     state: installed
@@ -17,7 +17,7 @@
 #    idempotent: yes
 
 
-- name: load schema
+- name: Load Schema
   ansible.builtin.shell: mongo --ssl --host dev-docdb-cluster.cluster-cx1ok7qfwfcu.us-east-1.docdb.amazonaws.com:27017 --sslCAFile /app/rds-combined-ca-bundle.pem --username {{ lookup('aws_ssm', "{{env}}.docdb.DB_ADMIN_USER", region='us-east-1' ) }} --password  {{ lookup('aws_ssm', "{{env}}.docdb.DB_ADMIN_PASS", region='us-east-1' ) }
 
 
