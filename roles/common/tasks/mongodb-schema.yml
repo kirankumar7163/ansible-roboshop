@@ -12,6 +12,6 @@
 
 - name: load schema
   community.mongodb.mongodb_shell:
-    login_host: mongodb.kiranprav.link
+    login_host: mongodb-dev.kiranprav.link
     file: "/app/schema/{{component}}.js"
     idempotent: yes
