@@ -37,5 +37,5 @@
   ansible.builtin.include_tasks: "systemd.yml"
 
 - name: import schema
-  ansible.builtin.include_tasks: "{{mysql}}-schema.yml"
+  ansible.builtin.include_tasks: "mysql-schema.yml"
   when: schema_load
