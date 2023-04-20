@@ -23,6 +23,7 @@
         - {name: "dev.payment.CART_PORT", value: "8080" }
         - {name: "dev.payment.USER_PORT", value: "8080" }
         - {name: "dev.payment.AMQP_HOST", value: "rabbitmq-dev.kiranprav.link" }
+        - {name: "dev.dispatch.AMQP_HOST", value: "rabbitmq-dev.kiranprav.link" }
         - {name: "dev.payment.AMQP_USER", value: "roboshop" }
         - {name: "dev.shipping.CART_ENDPOINT", value: "cart-dev.kiranprav.link:8080" }
         - {name: "dev.shipping.DB_HOST", value: "mysql-dev.kiranprav.link" }
@@ -49,3 +50,5 @@
         - {name: "dev.rds.DB_ADMIN_PASS", value: "RoboShop123" }
         - { name: "dev.rabbitmq.USER", value: "roboshop" }
         - { name: "dev.rabbitmq.PASS", value: "roboshop1234" }
+        - { name: "dev.dispatch.AMQP_PASS", value: "roboshop1234" }
+        - { name: "dev.dispatch.AMQP_USER", value: "roboshop" }
