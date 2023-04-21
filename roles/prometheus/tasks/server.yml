@@ -2,6 +2,9 @@
   ansible.builtin.template:
     src: prometheus.yml
     dest: /opt/prometheus/prometheus.yml
+  vars:
+    - { tag : "env", labels: "environment" }
+    - { tag : "env", Name: "name" }
 
 - name: restart prometheus
   ansible.builtin.systemd:
