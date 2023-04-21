@@ -1,3 +1,7 @@
 - name: setup server
   ansible.builtin.include_tasks: "server.yml"
   when: prometheus == "server"
+
+- name: setup exporter
+  ansible.builtin.inculde_tasks: "exporter.yml"
+  when: prometheus == "exporter"
