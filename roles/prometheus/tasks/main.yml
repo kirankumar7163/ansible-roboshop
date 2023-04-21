@@ -3,5 +3,5 @@
   when: prometheus == "server"
 
 - name: setup exporter
-  ansible.builtin.inculde_tasks: "exporter.yml"
+  ansible.builtin.include_tasks: "exporter.yml"
   when: prometheus == "exporter"
