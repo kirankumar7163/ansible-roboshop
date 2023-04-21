@@ -12,7 +12,6 @@
   ansible.builtin.shell:
     chdir: /app
     cmd: |
-      go mod init dispatch
       go get
       go build
 
