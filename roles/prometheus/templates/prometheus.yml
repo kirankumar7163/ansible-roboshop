@@ -28,6 +28,6 @@ scrape_configs:
         port: 9100
     relabel_configs:
 {% for item in labels %}
-    - source_labels: [__meta_ec2_tag_{{item.tag }}]
+    - source_labels: [__meta_ec2_tag_{{ item.tag }}]
       target_label: {{item.label}}
 {% endfor %}

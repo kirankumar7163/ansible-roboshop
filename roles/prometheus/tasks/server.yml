@@ -3,6 +3,7 @@
     src: prometheus.yml
     dest: /opt/prometheus/prometheus.yml
   vars:
+    labels:
     - { tag : "env", label: "environment" }
     - { tag : "Name", label: "name" }
 
