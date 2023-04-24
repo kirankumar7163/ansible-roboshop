@@ -17,7 +17,7 @@
   ansible.builtin.template:
     src: grafana-template.json
     dest: /tmp/grafana.json
-  remote_src: yes
+    remote_src: yes
 
 - name: Import Grafana dashboard foo
   community.grafana.grafana_dashboard:
