@@ -14,7 +14,7 @@
 
 # creating grafana dashboard using json code
 - name: make template
-  ansible.builtin.teplate:
+  ansible.builtin.template:
     src: grafana-template.json
     dest: /tmp/grafana.json
   remote_src: yes
