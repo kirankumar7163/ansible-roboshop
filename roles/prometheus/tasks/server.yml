@@ -24,7 +24,10 @@
     name: prometheus
     state: restarted
 
-# create alert rules for prometheus with the use of template alert-rules.yml
+- name: check prometheus started or not
+  ansible.builtin.shell: sudo netstat -lntp | grep 9090
+
+# create alertmanager config  to send email if server is downfor prometheus with the use of template alertmanager.yml
 - name: alert manager configuration
   ansible.builtin.template:
     src: alertmanager.yml
