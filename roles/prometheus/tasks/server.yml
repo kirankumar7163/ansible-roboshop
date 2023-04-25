@@ -9,8 +9,8 @@
 
 - name: Copy record Rules
   ansible.builtin.template:
-    name: record-rules.yml
-    state: /opt/prometheus/record-rules.yml
+    src: record-rules.yml
+    dest: /opt/prometheus/record-rules.yml
 
 - name: Restart Prometheus
   ansible.builtin.systemd:
