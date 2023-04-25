@@ -7,10 +7,17 @@
       - { tag: "env", label: "environment" }
       - { tag: "Name", label: "name" }
 
+# create record rules for prometheus with the help pf template record-rules.yml
 - name: Copy record Rules
   ansible.builtin.template:
     src: record-rules.yml
     dest: /opt/prometheus/record-rules.yml
+
+# create alert rules for prometheus with the use of template alert-rules.yml
+- name: alert Rules
+  ansible.builtin.template:
+    src: alert-rules.yml
+    dest: /opt/prometheus/alert-rules.yml
 
 - name: Restart Prometheus
   ansible.builtin.systemd:
