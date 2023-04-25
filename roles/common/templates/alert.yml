@@ -2,7 +2,7 @@ groups:
   - name: { { component } }
     rules:
       - alert: InstanceDown
-        expr: node_systemd_unit_state{name="{{env}}-{{component}}",exported_name="{{Service_name}}.service",state="active")
+        expr: node_systemd_unit_state{name="{{env}}-{{component}}",exported_name="{{Service_name}}.service",state="active") == 0
         for: 1m
         labels:
           severity: critical
