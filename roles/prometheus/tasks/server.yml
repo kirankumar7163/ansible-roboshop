@@ -24,6 +24,17 @@
     name: prometheus
     state: restarted
 
+# create alert rules for prometheus with the use of template alert-rules.yml
+- name: alert manager configuration
+  ansible.builtin.template:
+    src: alertmanager.yml
+    dest: /opt/alertmanager/alert-rules.yml
+
+- name: Restart Prometheus
+  ansible.builtin.systemd:
+    name: alertmanager
+    state: restarted
+
 # creating grafana dashboard using json code
 #- name: make template
 #  ansible.builtin.template:
