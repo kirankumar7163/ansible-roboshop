@@ -1,2 +1,3 @@
 component: frontend
 app_version: 1.0.1
+Service_name: nginx

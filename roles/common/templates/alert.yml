@@ -1,0 +1,12 @@
+groups:
+  - name: { { component } }
+    rules:
+      - alert: InstanceDown
+        expr: node_systemd_unit_state{name="{{env}}-{{component}}",exported_name="{{service_name}}.service",state="active")
+        for: 1m
+        labels:
+          severity: critical
+        annotations: {% raw %}
+          summary: "Service Down - [{{ $labels.name }}]"
+          description: "Service {{ $labels.exported_name }} is DOWN"
+  {% endraw %}

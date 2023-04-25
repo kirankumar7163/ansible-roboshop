@@ -1,3 +1,4 @@
 component: dispatch
 schema_load: false
 app_version: 1.0.1
+Service_name: dispatch
