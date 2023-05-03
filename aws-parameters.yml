@@ -53,8 +53,8 @@
         - { name: "dev.dispatch.AMQP_PASS", value: "roboshop1234" }
         - { name: "dev.dispatch.AMQP_USER", value: "roboshop" }
         - { name: "grafana.api_key", value: "eyJrIjoiSEpHZUl6dGY0Ym51WkNDNGlJVmM1MUdlbzQ4akpWa2MiLCJuIjoiY2xpIiwiaWQiOjF9" }
-        - { name: "ses.USER", value: "AKIA2ZVKWW2HG44POGHD" }
-        - { name: "ses.PASS", value: "BMynjOu26/tEJ0LR5GFvdMYdnazJHOl1Pw095Wo3RdQA" }
+        - { name: "ses.USER", value: "AKIA2ZVKWW2HJR3MMLZQ" }
+        - { name: "ses.PASS", value: "BOJ6ePXcMzce7Mtqz0u/u4o3GAy2OJOqb4jL0TOtB+Oy" }
         - { name: "dev.ssh.USER", value: "centos" }
         - { name: "dev.ssh.PASS", value: "DevOps321" }
 
