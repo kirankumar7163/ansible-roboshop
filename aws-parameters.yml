@@ -8,28 +8,28 @@
         value: "{{ item.value }}"
         region: us-east-1
       loop:
-        - {name: "dev.cart.REDIS_HOST", value: "redis-dev.kiranprav.link" }
-        - {name: "dev.cart.CATALOGUE_HOST", value: "catalogue-dev.kiranprav.link" }
+        - {name: "dev.cart.REDIS_HOST", value: "redis-dev.awsctr.online" }
+        - {name: "dev.cart.CATALOGUE_HOST", value: "catalogue-dev.awsctr.online" }
         - {name: "dev.catalogue.MONGO", value: "true" }
-        - {name: "dev.catalogue.MONGO_URL", value: "mongodb://mongodb-dev.kiranpravlink:27017/catalogue" }
-        - {name: "dev.catalogue.MONGO_URL", value: "mongodb://mongodb-dev.kiranpravlink:27017/catalogue" }
-        - {name: "dev.frontend.CATALOGUE_URL", value: "http://catalogue-dev.kiranprav.link:80/" }
-        - {name: "dev.frontend.CART_URL", value: "http://cart-dev.kiranprav.link:80/" }
-        - {name: "dev.frontend.USER_URL", value: "http://user-dev.kiranprav.link:80/" }
-        - {name: "dev.frontend.PAYMENT_URL", value: "http://payment-dev.kiranprav.link:80/" }
-        - {name: "dev.frontend.SHIPPING_URL", value: "http://shipping-dev.kiranprav.link:80/" }
-        - {name: "dev.payment.CART_HOST", value: "cart-dev.kiranprav.link" }
-        - {name: "dev.payment.USER_HOST", value: "user-dev.kiranprav.link" }
+        - {name: "dev.catalogue.MONGO_URL", value: "mongodb://mongodb-dev.awsctr.online:27017/catalogue" }
+        - {name: "dev.catalogue.MONGO_URL", value: "mongodb://mongodb-dev.awsctr.online:27017/catalogue" }
+        - {name: "dev.frontend.CATALOGUE_URL", value: "http://catalogue-dev.awsctr.online:80/" }
+        - {name: "dev.frontend.CART_URL", value: "http://cart-dev.awsctr.online:80/" }
+        - {name: "dev.frontend.USER_URL", value: "http://user-dev.awsctr.online:80/" }
+        - {name: "dev.frontend.PAYMENT_URL", value: "http://payment-dev.awsctr.online:80/" }
+        - {name: "dev.frontend.SHIPPING_URL", value: "http://shipping-dev.awsctr.online:80/" }
+        - {name: "dev.payment.CART_HOST", value: "cart-dev.awsctr.online" }
+        - {name: "dev.payment.USER_HOST", value: "user-dev.awsctr.online" }
         - {name: "dev.payment.CART_PORT", value: "80" }
         - {name: "dev.payment.USER_PORT", value: "80" }
-        - {name: "dev.payment.AMQP_HOST", value: "rabbitmq-dev.kiranprav.link" }
-        - {name: "dev.dispatch.AMQP_HOST", value: "rabbitmq-dev.kiranprav.link" }
+        - {name: "dev.payment.AMQP_HOST", value: "rabbitmq-dev.awsctr.online" }
+        - {name: "dev.dispatch.AMQP_HOST", value: "rabbitmq-dev.awsctr.online" }
         - {name: "dev.payment.AMQP_USER", value: "roboshop" }
-        - {name: "dev.shipping.CART_ENDPOINT", value: "cart-dev.kiranprav.link:80" }
-        - {name: "dev.shipping.DB_HOST", value: "mysql-dev.kiranprav.link" }
+        - {name: "dev.shipping.CART_ENDPOINT", value: "cart-dev.awsctr.online:80" }
+        - {name: "dev.shipping.DB_HOST", value: "mysql-dev.awsctr.online" }
         - {name: "dev.user.MONGO", value: "true" }
-        - {name: "dev.user.MONGO_URL", value: "mongodb://mongodb-dev.kiranprav.link:27017/users" }
-        - {name: "dev.user.REDIS_HOST", value: "redis-dev.kiranprav.link" }
+        - {name: "dev.user.MONGO_URL", value: "mongodb://mongodb-dev.awsctr.online:27017/users" }
+        - {name: "dev.user.REDIS_HOST", value: "redis-dev.awsctr.online" }
 
     ### PASSWORDS SHOULD NEVER BE KEPT IN THESE REPOS, THOSE SHOULD BE CREATED MAUALLY, BUT FOR LAB PURPOSE IAM CREATING HERE
     - name: Create Secrets
