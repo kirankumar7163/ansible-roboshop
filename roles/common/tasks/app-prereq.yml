@@ -29,3 +29,4 @@
 
     nexus_user: "{{ lookup('aws_ssm', 'nexus.user', region='us-east-1' ) }}"
     nexus_password: "{{ lookup('aws_ssm', 'nexus.password', region='us-east-1' ) }}"
+
