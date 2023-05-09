@@ -10,7 +10,7 @@
     dest: /tmp/alert.yml
 
 - name: copy the prometheus Alert configuration to Prometheus server
-  ansible.builtin.shell: sshpass -p {{ lookup('aws_ssm', '{{env}}.ssh.PASS', region='us-east-1' ) }}  scp /tmp/alert.yml {{ lookup('aws_ssm', '{{env}}.ssh.USER', region='us-east-1' ) }}@172.31.2.56:/opt/prometheus/alerts/{{component}}.yml
+  ansible.builtin.shell: sshpass -p {{ lookup('aws_ssm', '{{env}}.ssh.PASS', region='us-east-1' ) }}  scp /tmp/alert.yml {{ lookup('aws_ssm', '{{env}}.ssh.USER', region='us-east-1' ) }}@172.31.95.152:/opt/prometheus/alerts/{{component}}.yml
 
 # creating grafana dashboard using json code
 - name: make template
@@ -21,7 +21,7 @@
 
 - name: Import Grafana dashboard foo
   community.grafana.grafana_dashboard:
-    grafana_url: http://172.31.2.56:3000
+    grafana_url: http://172.31.95.152:3000
     grafana_api_key: "{{ lookup('aws_ssm', 'grafana.api_key', region='us-east-1' ) }}"
     state: present
     commit_message: Updated by ansible

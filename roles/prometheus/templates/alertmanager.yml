@@ -8,7 +8,7 @@ route:
 receivers:
   - name: "awsctr.online"
     awsctr.online_configs:
-      - to: "kirankumar7163@gmail.com"      # you@example.com
+      - to: "kirandevopskumar@gmail.com"      # you@example.com
         from: "kirankumar7163@gmail.com"  # alertmanager@example.com
         smarthost: "awsctr.online-smtp.us-east-1.amazonaws.com:587"
         auth_username: "{{ lookup('aws_ssm', 'ses.USER', region='us-east-1' ) }}"
