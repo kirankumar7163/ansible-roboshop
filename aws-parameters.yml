@@ -11,7 +11,7 @@
         - {name: "dev.cart1.REDIS_HOST", value: "redis-dev.awsctr.online" }
         - {name: "dev.cart1.CATALOGUE_HOST", value: "catalogue-dev.awsctr.online" }
         - {name: "dev.catalogue.MONGO", value: "true" }
-        - {name: "dev.catalogue.MONGO_URL", value: "mongodb://mongodb-dev.awsctr.online:27017/catalogue" }
+       # - {name: "dev.catalogue.MONGO_URL", value: "mongodb://mongodb-dev.awsctr.online:27017/catalogue" }
         - {name: "dev.catalogue.MONGO_URL", value: "mongodb://mongodb-dev.awsctr.online:27017/catalogue" }
         - {name: "dev.frontend.CATALOGUE_URL", value: "http://catalogue-dev.awsctr.online:80/" }
         - {name: "dev.frontend.CART1_URL", value: "http://cart1-dev.awsctr.online:80/" }
