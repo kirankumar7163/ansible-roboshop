@@ -8,16 +8,16 @@
       - { tag: "Name", label: "name" }
 
 # create record rules for prometheus with the help pf template record-rules.yml
-- name: Copy record Rules
-  ansible.builtin.template:
-    src: record-rules.yml
-    dest: /opt/prometheus/record-rules.yml
+#- name: Copy record Rules
+#  ansible.builtin.template:
+#    src: record-rules.yml
+#    dest: /opt/prometheus/record-rules.yml
 
 # create alert rules for prometheus with the use of template alert-rules.yml
-- name: alert Rules
-  ansible.builtin.template:
-    src: alert-rules.yml
-    dest: /opt/prometheus/alert-rules.yml
+#- name: alert Rules
+#  ansible.builtin.template:
+#    src: alert-rules.yml
+#    dest: /opt/prometheus/alert-rules.yml
 
 - name: Restart Prometheus
   ansible.builtin.systemd:
@@ -28,15 +28,15 @@
   ansible.builtin.shell: sudo netstat -lntp | grep 9090
 
 # create alertmanager config  to send email if server is downfor prometheus with the use of template alertmanager.yml
-- name: alert manager configuration
-  ansible.builtin.template:
-    src: alertmanager.yml
-    dest: /opt/alertmanager/alertmanager.yml
+#- name: alert manager configuration
+#  ansible.builtin.template:
+#    src: alertmanager.yml
+#    dest: /opt/alertmanager/alertmanager.yml
 
-- name: Restart Prometheus
-  ansible.builtin.systemd:
-    name: alertmanager
-    state: restarted
+#- name: Restart Prometheus
+#  ansible.builtin.systemd:
+#    name: alertmanager
+#    state: restarted
 
 # creating grafana dashboard using json code
 #- name: make template

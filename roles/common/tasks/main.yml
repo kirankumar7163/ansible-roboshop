@@ -4,13 +4,13 @@
 - name: Install prometheus Node Exporter
   ansible.builtin.shell: labauto prometheus-node-exporter
 
-#- name: setup prometheus Alerts configuration
-#  ansible.builtin.template:
-#    src: alert.yml
-#    dest: /tmp/alert.yml
+- name: setup prometheus Alerts configuration
+  ansible.builtin.template:
+    src: alert.yml
+    dest: /tmp/alert.yml
 
-#- name: copy the prometheus Alert configuration to Prometheus server
-#  ansible.builtin.shell: sshpass -p {{ lookup('aws_ssm', '{{env}}.ssh.PASS', region='us-east-1' ) }}  scp /tmp/alert.yml {{ lookup('aws_ssm', '{{env}}.ssh.USER', region='us-east-1' ) }}@172.31.95.152:/opt/prometheus/alerts/{{component}}.yml
+- name: copy the prometheus Alert configuration to Prometheus server
+  ansible.builtin.shell: sshpass -p {{ lookup('aws_ssm', '{{env}}.ssh.PASS', region='us-east-1' ) }}  scp /tmp/alert.yml {{ lookup('aws_ssm', '{{env}}.ssh.USER', region='us-east-1' ) }}@172.31.95.152:/opt/prometheus/alerts/{{component}}.yml
 
 # creating grafana dashboard using json code
 #- name: make template
