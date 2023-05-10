@@ -1,4 +1,4 @@
 component: cart1
 schema_load: false
 app_version: 1.0.1
-service_name: cart
+service_name: cart1
