@@ -28,15 +28,15 @@
   ansible.builtin.shell: sudo netstat -lntp | grep 9090
 
 # create alertmanager config  to send email if server is downfor prometheus with the use of template alertmanager.yml
-#- name: alert manager configuration
-#  ansible.builtin.template:
-#    src: alertmanager.yml
-#    dest: /opt/alertmanager/alertmanager.yml
+- name: alert manager configuration
+  ansible.builtin.template:
+    src: alertmanager.yml
+    dest: /opt/alertmanager/alertmanager.yml
 
-#- name: Restart Prometheus
-#  ansible.builtin.systemd:
-#    name: alertmanager
-#    state: restarted
+- name: Restart Prometheus
+  ansible.builtin.systemd:
+    name: alertmanager
+    state: restarted
 
 #grafana
 # creating grafana dashboard using json code
