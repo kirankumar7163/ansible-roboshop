@@ -2,6 +2,6 @@ component: shipping
 schema_load: true
 schema_type: mysql
 app_version: 1.0.0
-Service_name: shipping
+service_name: shipping
 
 #(this is for prometheus service for alert configuration of particular service this variable is given tha main varaible which is given in coomom folder template alert.yml)

@@ -1,4 +1,4 @@
 component: frontend
 app_version: 1.0.1
-Service_name: nginx
+service_name: nginx
 #(this is for prometheus service for alert configuration of particular service this variable is given tha main varaible which is given in coomom folder template alert.yml)
