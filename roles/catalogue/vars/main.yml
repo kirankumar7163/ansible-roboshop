@@ -2,4 +2,4 @@ component: catalogue
 schema_load: true
 schema_type: mongodb
 app_version: 1.0.3
-Service_name: catalogue
+Service_name: catalogue #(this is for prometheus service for alert configuration of particular service this variable is given tha main varaible which is given in coomom folder template alert.yml)
