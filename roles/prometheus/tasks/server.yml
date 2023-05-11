@@ -14,18 +14,18 @@
     dest: /opt/prometheus/record-rules.yml
 
 # create alert rules for prometheus with the use of template alert-rules.yml
-#- name: alert Rules
-#  ansible.builtin.template:
-#    src: alert-rules.yml
-#    dest: /opt/prometheus/alert-rules.yml
+- name: alert Rules
+  ansible.builtin.template:
+    src: alert-rules.yml
+    dest: /opt/prometheus/alert-rules.yml
 
 - name: Restart Prometheus
   ansible.builtin.systemd:
     name: prometheus
     state: restarted
 
-#- name: check prometheus started or not
-#  ansible.builtin.shell: sudo netstat -lntp | grep 9090
+- name: check prometheus started or not
+  ansible.builtin.shell: sudo netstat -lntp | grep 9090
 
 # create alertmanager config  to send email if server is downfor prometheus with the use of template alertmanager.yml
 #- name: alert manager configuration
