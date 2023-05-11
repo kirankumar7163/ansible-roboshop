@@ -4,9 +4,9 @@ route:
   group_wait: 30s
   group_interval: 5m
   repeat_interval: 1h
-  receiver: 'awsctr.online'
+  receiver: 'email'
 receivers:
-  - name: "awsctr.online"
+  - name: "email"
     awsctr.online_configs:
       - to: "kirandevopskumar@gmail.com"      # you@example.com
         from: "kirankumar7163@gmail.com"  # alertmanager@example.com
