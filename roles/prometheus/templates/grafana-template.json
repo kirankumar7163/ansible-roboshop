@@ -195,5 +195,5 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "frontend"
+  "title": "{{component}}"
 }
