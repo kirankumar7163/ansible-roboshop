@@ -2,3 +2,4 @@ component: cart1
 schema_load: false
 app_version: 1.0.1
 service_name: cart1
+#(this is for prometheus service for alert configuration of particular service this variable is given tha main varaible which is given in coomom folder template alert.yml)
