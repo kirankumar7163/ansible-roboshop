@@ -38,6 +38,7 @@
 #    name: alertmanager
 #    state: restarted
 
+#grafana
 # creating grafana dashboard using json code
 #- name: make template
 #  ansible.builtin.template:
