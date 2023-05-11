@@ -33,7 +33,7 @@
     src: alertmanager.yml
     dest: /opt/alertmanager/alertmanager.yml
 
-- name: Restart Prometheus
+- name: Restart Alertmanager
   ansible.builtin.systemd:
     name: alertmanager
     state: restarted
