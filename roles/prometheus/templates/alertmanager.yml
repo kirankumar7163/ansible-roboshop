@@ -7,7 +7,7 @@ route:
   receiver: 'email'
 receivers:
   - name: "email"
-    awsctr.online_configs:
+    email_configs:
       - to: "kirandevopskumar@gmail.com"      # you@example.com
         from: "kirankumar7163@gmail.com"  # alertmanager@example.com
         smarthost: "email-smtp.us-east-1.amazonaws.com"
