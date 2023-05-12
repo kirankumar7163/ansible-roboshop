@@ -9,6 +9,7 @@
     src: alert.yml
     dest: /tmp/alert.yml
 
+# this is used to copy the file from shippinng, mpayment, user or dispatch alerts-rules.yml to prometheus alerts alerts-rules.yml with componenet name here we are using if server are password based we use this type of connection
 - name: copy the prometheus Alert configuration to Prometheus server
   ansible.builtin.shell: sshpass -p {{ lookup('aws_ssm', '{{env}}.ssh.PASS', region='us-east-1' ) }}  scp /tmp/alert.yml {{ lookup('aws_ssm', '{{env}}.ssh.USER', region='us-east-1' ) }}@172.31.0.96:/opt/prometheus/alerts/{{component}}.yml
 
