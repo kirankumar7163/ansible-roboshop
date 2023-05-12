@@ -107,7 +107,7 @@
             "type": "prometheus",
             "uid": "QDZNmd84k"
           },
-          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"dev-frontend\"}[1m]) * 100)))",
+          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"{{env}}-{{component}}\"}[1m]) * 100)))",
           "refId": "A"
         }
       ],
@@ -172,7 +172,7 @@
             "type": "prometheus",
             "uid": "QDZNmd84k"
           },
-          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"dev-frontend\"}[1m]) * 100)))",
+          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"{{env}}-{{component}}\"}[1m]) * 100)))",
           "refId": "A"
         }
       ],
@@ -193,5 +193,5 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "template"
+  "title": "{{component}}"
 }
