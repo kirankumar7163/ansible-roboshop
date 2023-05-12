@@ -24,14 +24,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 2,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "YmgUL7UVk"
+        "uid": "QDZNmd84k"
       },
       "fieldConfig": {
         "defaults": {
@@ -85,11 +85,11 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 10,
+        "w": 12,
         "x": 0,
         "y": 0
       },
-      "id": 4,
+      "id": 2,
       "options": {
         "legend": {
           "calcs": [],
@@ -105,19 +105,19 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "YmgUL7UVk"
+            "uid": "QDZNmd84k"
           },
           "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"{{env}}-{{component}}\"}[1m]) * 100)))",
           "refId": "A"
         }
       ],
-      "title": "CpuTime",
+      "title": "cputimeseries",
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "YmgUL7UVk"
+        "uid": "QDZNmd84k"
       },
       "fieldConfig": {
         "defaults": {
@@ -125,8 +125,6 @@
             "mode": "thresholds"
           },
           "mappings": [],
-          "max": 100,
-          "min": 1,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -150,11 +148,11 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 9,
-        "x": 10,
+        "w": 12,
+        "x": 12,
         "y": 0
       },
-      "id": 2,
+      "id": 4,
       "options": {
         "orientation": "auto",
         "reduceOptions": {
@@ -172,13 +170,13 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "YmgUL7UVk"
+            "uid": "QDZNmd84k"
           },
-          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"{{env}}-{{component}}\" }[1m]) * 100)))",
+          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"{{env}}-{{component}}\"}[1m]) * 100)))",
           "refId": "A"
         }
       ],
-      "title": "cpu %",
+      "title": "cpu%",
       "type": "gauge"
     }
   ],
@@ -190,7 +188,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {},
