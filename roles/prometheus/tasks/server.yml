@@ -46,10 +46,10 @@
     dest: /tmp/grafana.json
     remote_src: yes
 
-#- name: Import Grafana dashboard foo
-#  community.grafana.grafana_dashboard:
-#    grafana_url: http://172.31.0.96:3000
-#    grafana_api_key: "{{ grafana_api_key }}"
-#    state: present
-#    overwrite: yes
-#    path: /tmp/grafana.json
+- name: Import Grafana dashboard foo
+  community.grafana.grafana_dashboard:
+    grafana_url: http://172.31.0.96:3000
+    grafana_api_key: "{{ grafana_api_key }}"
+    state: present
+    overwrite: yes
+    path: /tmp/grafana.json

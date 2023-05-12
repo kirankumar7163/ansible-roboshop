@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 2,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -89,7 +89,7 @@
         "x": 0,
         "y": 0
       },
-      "id": 4,
+      "id": 2,
       "options": {
         "legend": {
           "calcs": [],
@@ -107,7 +107,7 @@
             "type": "prometheus",
             "uid": "QDZNmd84k"
           },
-          "expr": "100 - floor(rate(node_cpu_seconds_total{ mode=\"idle\"}[1m]) *100)\r\n",
+          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"dev-frontend\"}[1m]) * 100)))",
           "refId": "A"
         }
       ],
@@ -125,8 +125,6 @@
             "mode": "thresholds"
           },
           "mappings": [],
-          "max": 100,
-          "min": 1,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -136,7 +134,7 @@
               },
               {
                 "color": "#EAB839",
-                "value": 50
+                "value": 60
               },
               {
                 "color": "red",
@@ -149,12 +147,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
+        "h": 8,
         "w": 12,
         "x": 12,
         "y": 0
       },
-      "id": 2,
+      "id": 4,
       "options": {
         "orientation": "auto",
         "reduceOptions": {
@@ -174,7 +172,7 @@
             "type": "prometheus",
             "uid": "QDZNmd84k"
           },
-          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"{{env}}-{{component}}\"}[1m]) *100)))",
+          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"dev-frontend\"}[1m]) * 100)))",
           "refId": "A"
         }
       ],
@@ -182,6 +180,7 @@
       "type": "gauge"
     }
   ],
+  "refresh": "",
   "schemaVersion": 36,
   "style": "dark",
   "tags": [],
@@ -194,5 +193,5 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "{{component}}"
+  "title": "template"
 }
