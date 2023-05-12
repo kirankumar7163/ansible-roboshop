@@ -1,1 +1,2 @@
 component: rabbitmq
+service_name: rabbitmq
