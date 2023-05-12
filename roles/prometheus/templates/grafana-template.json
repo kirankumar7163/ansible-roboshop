@@ -31,7 +31,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "YmgUL7UVk"
+        "uid": "QDZNmd84k"
       },
       "fieldConfig": {
         "defaults": {
@@ -85,7 +85,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 10,
+        "w": 12,
         "x": 0,
         "y": 0
       },
@@ -105,19 +105,19 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "YmgUL7UVk"
+            "uid": "QDZNmd84k"
           },
-          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"{{env}}-{{component}}\"}[1m]) * 100)))",
+          "expr": "100 - floor(rate(node_cpu_seconds_total{ mode=\"idle\"}[1m]) *100)\r\n",
           "refId": "A"
         }
       ],
-      "title": "CpuTime",
+      "title": "cputimeseries",
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "YmgUL7UVk"
+        "uid": "QDZNmd84k"
       },
       "fieldConfig": {
         "defaults": {
@@ -136,7 +136,7 @@
               },
               {
                 "color": "#EAB839",
-                "value": 60
+                "value": 50
               },
               {
                 "color": "red",
@@ -149,9 +149,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 9,
-        "x": 10,
+        "h": 9,
+        "w": 12,
+        "x": 12,
         "y": 0
       },
       "id": 2,
@@ -172,17 +172,16 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "YmgUL7UVk"
+            "uid": "QDZNmd84k"
           },
-          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"{{env}}-{{component}}\" }[1m]) * 100)))",
+          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"{{env}}-{{component}}\"}[1m]) *100)))",
           "refId": "A"
         }
       ],
-      "title": "cpu %",
+      "title": "cpu%",
       "type": "gauge"
     }
   ],
-  "refresh": "",
   "schemaVersion": 36,
   "style": "dark",
   "tags": [],
@@ -190,7 +189,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {},
