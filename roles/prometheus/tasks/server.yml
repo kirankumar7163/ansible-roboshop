@@ -27,6 +27,11 @@
 - name: check prometheus started or not
   ansible.builtin.shell: sudo netstat -lntp | grep 9090
 
+# this command to used to relstart prometheus from remote system without going to prometheus local system
+#before this we need to add --web.enable-lifecycle in cd /etc/systemd/system/prometheus.service file adter this we need to daemon-reload and systemctl restart prometheus
+- name: Reload Prometheus
+  ansible.builtin.shell: curl -v -s -XPOST http://172.31.0.96/-/reload
+
 # create alertmanager config  to send email if server is downfor prometheus with the use of template alertmanager.yml
 - name: alert manager configuration
   ansible.builtin.template:
