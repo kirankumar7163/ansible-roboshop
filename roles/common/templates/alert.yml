@@ -10,4 +10,3 @@ groups:
           summary: "Service Down - [{{ $labels.name }}]"
           description: "Service {{ $labels.exported_name }} is DOWN"
 {% endraw %}
-
