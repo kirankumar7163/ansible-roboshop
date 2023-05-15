@@ -103,7 +103,7 @@
             "type": "prometheus",
             "uid": "QDZNmd84k"
           },
-          "expr": "node_systemd_unit_state{name=\"{{env}}-{{component}}\",exported_name=\"{{component}}.service\",state=\"active\"}",
+          "expr": "node_systemd_unit_state{name=\"{{env}}-{{component}}\",exported_name=\"{{service_name}}.service\",state=\"active\"}",
           "refId": "A"
         }
       ],
