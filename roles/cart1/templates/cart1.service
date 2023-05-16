@@ -1,5 +1,5 @@
 [Unit]
-Description = Cart1 Service
+Description = Cart Service
 [Service]
 User=roboshop
 Environment=REDIS_HOST="{{ lookup('aws_ssm', "{{env}}.elasticache.Endpoint", region='us-east-1' ) }}"
