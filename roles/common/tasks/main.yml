@@ -13,6 +13,13 @@
 - name: copy the prometheus Alert configuration to Prometheus server
   ansible.builtin.shell: sshpass -p {{ lookup('aws_ssm', '{{env}}.ssh.PASS', region='us-east-1' ) }}  scp /tmp/alert.yml {{ lookup('aws_ssm', '{{env}}.ssh.USER', region='us-east-1' ) }}@172.31.0.96:/opt/prometheus/alerts/{{component}}.yml
 
+
+# this code is in elk folder this will import the code from elk folder
+
+- name: Import elk
+  ansible.builtin.import_role:
+    name: elk
+
 # creating grafana dashboard using json code
 - name: make template
   ansible.builtin.template:
